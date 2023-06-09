@@ -540,24 +540,6 @@ impl Swapchain {
             return Err(SwapchainCreationError::PresentModeNotSupported);
         }
 
-        // VUID-VkSwapchainCreateInfoKHR-imageFormat-01778
-        // Use unchecked, because all validation has been done above.
-        if unsafe {
-            device
-                .physical_device()
-                .image_format_properties_unchecked(ImageFormatInfo {
-                    format: *image_format,
-                    image_type: ImageType::Dim2d,
-                    tiling: ImageTiling::Optimal,
-                    usage: image_usage,
-                    ..Default::default()
-                })?
-        }
-        .is_none()
-        {
-            return Err(SwapchainCreationError::ImageFormatPropertiesNotSupported);
-        }
-
         Ok(())
     }
 
