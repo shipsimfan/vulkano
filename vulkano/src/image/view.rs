@@ -180,11 +180,6 @@ where
             });
         }
 
-        // VUID-VkImageViewCreateInfo-None-02273
-        if format_features == FormatFeatures::default() {
-            return Err(ImageViewCreationError::FormatNotSupported);
-        }
-
         // Check for compatibility with the image
         let image_type = image.dimensions().image_type();
 

@@ -15,10 +15,7 @@ use crate::{
     buffer::Buffer,
     device::{Device, DeviceOwned, Queue},
     format::Format,
-    image::{
-        sys::Image, ImageFormatInfo, ImageLayout, ImageTiling, ImageType, ImageUsage,
-        SwapchainImage,
-    },
+    image::{sys::Image, ImageLayout, ImageUsage, SwapchainImage},
     macros::{impl_id_counter, vulkan_enum},
     swapchain::{PresentInfo, SurfaceApi, SurfaceInfo, SurfaceSwapchainLock},
     sync::{
